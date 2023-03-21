@@ -1,0 +1,41 @@
+.Searchbar{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.Searchbar-icons{
+    width: 297px;
+    height: 55px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: solid 1px #F2F2F2;
+    border-radius: 16px;
+    position: relative;
+    top: 49px;
+    right: 121px;
+}
+
+.Searchbar-icons-location, .Searchbar-icons-guests{
+    border-right: 1px solid #F2F2F2;
+    width: 297px;
+    height: 55px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 14px;
+    line-height: 16.41px;
+}
+
+.Searchbar-icons-icon{
+    width: 100px;
+    height: 55px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+input{
+
+}
