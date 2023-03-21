@@ -1,0 +1,50 @@
+.TemporaryDrawer-inputs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 20vh;
+}
+
+.TemporaryDrawer-SearchButton{
+    width: 127px;
+    height: 48px;
+    border-radius: 16px;
+    background-color: #EB5757;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #F2F2F2;
+    box-shadow: 0px 1px 6px 0px #F2F2F2;
+}
+
+.TemporaryDrawer-SearchButton:hover{
+    cursor: pointer
+}
+
+.TemporaryDrawer-Input{
+    width: 426px;
+    height: 55px;
+    border-radius: 16px;
+    border: 1px solid #F2F2F2;
+    font-size: 9px;
+    font-weight: 800;
+    line-height: 11.29px;
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 15px;
+}
+
+.TemporaryDrawer-Input-Location, .TemporaryDrawer-Input-Guests{
+    border: none;
+    padding-top: 10px;
+}
+
+.TemporaryDrawer-Input-Location:focus{
+    outline: none;
+}
+
+.TemporaryDrawer-Input-Guests:focus{
+    outline: none;
+}

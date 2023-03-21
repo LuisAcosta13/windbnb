@@ -1,33 +1,44 @@
 import Property from './property/property'
 import './properties.css'
-import stays from './stays.json'
+import { useSelector } from 'react-redux'
+// import stays from './stays.json'
+import { RootState } from '../../redux/store'
+import { useEffect } from 'react'
+
+interface Property {
+    city: string,
+    country: string,
+    superHost: boolean,
+    title: string,
+    rating: number,
+    maxGuests: number,
+    type: string,
+    beds: any,
+    photo: string
+}
+
+interface Location {
+    currentLocation: string
+}
 
 const Properties: React.FC = () => {
 
-    interface Props {
-        city: string,
-        country: string,
-        superHost: boolean,
-        title: string,
-        rating: number,
-        maxGuests: number,
-        type: string,
-        beds: any,
-        photo: string
-    }
+    const stays = useSelector<RootState, Property[]>((state) => state.stays)
+
+    const currentLocation = useSelector<RootState>((state) => state.currentLocation)
 
     return(
         <div>
             <div className='Properties-header'>
                 <h2>
-                    Stays in Finland
+                    Stays in {currentLocation as string}
                 </h2>
                 <p className='Properties-count'>
                     {stays.length} stays
                 </p>
             </div>
             <div className='Properties'>
-                {stays.map((stay) => 
+                {stays.map((stay: any) => 
                     <Property 
                         city={stay.city} 
                         country={stay.country} 

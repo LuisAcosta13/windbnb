@@ -44,6 +44,10 @@
     color: #EB5757;
 }
 
+.Searchbar-icons-icon:hover{
+    cursor: pointer;
+}
+
 input{
 
 }
