@@ -5,3 +5,16 @@
     padding-left: 48px;
     padding-right: 48px;
 }
+
+.Properties-header{
+    color: #333333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 120px;
+    padding-right: 120px;
+}
+
+.Properties-count{
+    color:#4F4F4F;
+}

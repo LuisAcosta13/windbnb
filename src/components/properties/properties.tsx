@@ -17,20 +17,30 @@ const Properties: React.FC = () => {
     }
 
     return(
-        <div className='Properties'>
-            {stays.map((stay) => 
-                <Property 
-                    city={stay.city} 
-                    country={stay.country} 
-                    superHost={stay.superHost}
-                    title={stay.title}
-                    rating={stay.rating}
-                    maxGuests={stay.maxGuests}
-                    type={stay.type}
-                    beds={stay.beds}
-                    photo={stay.photo}
-                />
-            )}
+        <div>
+            <div className='Properties-header'>
+                <h2>
+                    Stays in Finland
+                </h2>
+                <p className='Properties-count'>
+                    {stays.length} stays
+                </p>
+            </div>
+            <div className='Properties'>
+                {stays.map((stay) => 
+                    <Property 
+                        city={stay.city} 
+                        country={stay.country} 
+                        superHost={stay.superHost}
+                        title={stay.title}
+                        rating={stay.rating}
+                        maxGuests={stay.maxGuests}
+                        type={stay.type}
+                        beds={stay.beds}
+                        photo={stay.photo}
+                    />
+                )}
+            </div>
         </div>
     )
 }

@@ -10,7 +10,7 @@ const Searchbar: React.FC = () => {
 
             <div className='Searchbar-icons'>
                 <div className='Searchbar-icons-location'>
-                    Location
+                    Finland
                 </div>
                 <div className='Searchbar-icons-guests'>
                     Guests
