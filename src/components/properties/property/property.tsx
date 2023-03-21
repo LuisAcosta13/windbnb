@@ -23,8 +23,8 @@ const Property: React.FC<Props> = ({city, country, superHost, title, rating, max
                 <img src={photo} alt='Photo' className='Property-photo'/>
             </div>
             <div className='Property-header'>
-                {superHost && <span className='Property-superHost'>SuperHost</span>}
-                <span>{type}. {beds && <span>{beds} beds</span>}</span>
+                {superHost && <span className='Property-superHost'>SUPER HOST</span>}
+                <span>{type}{beds && <span>. {beds} beds</span>}</span>
                 
                 <span className='Property-rating'>
                     <span className='Property-ratingIcon'>{starRateRoundedIcon} </span>
