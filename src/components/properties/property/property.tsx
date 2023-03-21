@@ -24,7 +24,7 @@ const Property: React.FC<Props> = ({city, country, superHost, title, rating, max
             </div>
             <div className='Property-header'>
                 {superHost && <span className='Property-superHost'>SUPER HOST</span>}
-                <span>{type}{beds && <span>. {beds} beds</span>}</span>
+                <span>{type}{beds && <span>. {beds} {beds === 1 ? 'bed' : 'beds'}</span>}</span>
                 
                 <span className='Property-rating'>
                     <span className='Property-ratingIcon'>{starRateRoundedIcon} </span>
