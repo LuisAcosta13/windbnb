@@ -10,7 +10,7 @@ function App() {
   const dispatch = useDispatch()
 
   const cleanFilters = () => {
-    dispatch({type: CLEAN_PROPERTIES, payload: 'Finland'})
+    dispatch({type: CLEAN_PROPERTIES, payload: {location: 'Finland', adultGuests: 0, childGuests: 0}})
   }
 
   return (

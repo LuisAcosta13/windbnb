@@ -16,12 +16,16 @@ interface Property {
 
 export interface RootState {
     stays: Property[],
-    currentLocation: string
+    currentLocation: string,
+    adultGuests: number,
+    childGuests: number
 }
 
 const initialState: RootState = {
     stays: staysArr,
-    currentLocation: 'Finland'
+    currentLocation: 'Finland',
+    adultGuests: 0,
+    childGuests: 0
 }
 
 const reducer = (state = initialState, action: SetProperties | CleanProperties): RootState => {
@@ -29,14 +33,18 @@ const reducer = (state = initialState, action: SetProperties | CleanProperties):
         case GET_PROPERTIES:
         return {
             ...state,
-            stays: staysArr.filter((stay: any) => stay.city === action.payload),
-            currentLocation: action.payload[0].toUpperCase() + action.payload.slice(1)
+            stays: staysArr.filter((stay: any) => stay.city === action.payload.location),
+            currentLocation: action.payload.location[0].toUpperCase() + action.payload.location.slice(1),
+            adultGuests: action.payload.adultGuests,
+            childGuests: action.payload.childGuests
         }
         case CLEAN_PROPERTIES:
             return {
                 ...state,
                 stays: staysArr,
-                currentLocation: action.payload
+                currentLocation: action.payload.location,
+                adultGuests: action.payload.adultGuests,
+                childGuests: action.payload.childGuests
             }
         default:
         return state;

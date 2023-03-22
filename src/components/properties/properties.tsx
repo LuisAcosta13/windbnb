@@ -3,7 +3,6 @@ import './properties.css'
 import { useSelector } from 'react-redux'
 // import stays from './stays.json'
 import { RootState } from '../../redux/store'
-import { useEffect } from 'react'
 
 interface Property {
     city: string,
@@ -17,28 +16,29 @@ interface Property {
     photo: string
 }
 
-interface Location {
-    currentLocation: string
-}
-
 const Properties: React.FC = () => {
 
     const stays = useSelector<RootState, Property[]>((state) => state.stays)
-
     const currentLocation = useSelector<RootState>((state) => state.currentLocation)
+    const adultsGlobalState = useSelector<RootState, number>((state) => state.adultGuests as any)
+    const childGlobalState = useSelector<RootState, number>((state) => state.childGuests as any)
+
+    const staysByGuests = () => {
+        return stays.filter((stay) => stay.maxGuests >= adultsGlobalState + childGlobalState)
+    }
 
     return(
-        stays.length > 0 ? <div>
+        staysByGuests().length > 0 ? <div>
             <div className='Properties-header'>
                 <h2>
                     Stays in {currentLocation as string}
                 </h2>
                 <p className='Properties-count'>
-                    {stays.length} stays
+                    {staysByGuests().length} stays
                 </p>
             </div>
             <div className='Properties'>
-                {stays.map((stay: any) => 
+                {staysByGuests().map((stay: any) => 
                     <Property 
                         city={stay.city} 
                         country={stay.country} 
