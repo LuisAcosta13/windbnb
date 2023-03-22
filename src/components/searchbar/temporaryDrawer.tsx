@@ -2,6 +2,7 @@ import { useState } from "react";
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
+import PlaceIcon from '@mui/icons-material/Place';
 import './temporaryDrawer.css'
 import { useDispatch } from 'react-redux';
 import { GET_PROPERTIES } from '../../redux/actions/get_properties'
@@ -11,6 +12,7 @@ import staysArr from '../properties/stays.json'
 const TemporaryDrawer: React.FC = () => {
     
     let searchRoundedIcon: JSX.Element = <SearchRoundedIcon/>
+    let placeIcon: JSX.Element = <PlaceIcon/>
 
     interface state {
         left: any
@@ -37,7 +39,13 @@ const TemporaryDrawer: React.FC = () => {
         } else {
             dispatch({type: CLEAN_PROPERTIES, payload: 'Finland'})
         }
+        setLocation('')
     }
+
+  const citiesList = staysArr.map((stay) => stay.city)
+  const cleanedCitiesList = citiesList.filter((city, index) => (citiesList.indexOf(city) === index))
+
+
     
     const list = (anchor: any) => (
       <Box
@@ -47,19 +55,26 @@ const TemporaryDrawer: React.FC = () => {
         // onKeyDown={toggleDrawer(anchor, false)}
       >
         <div className='TemporaryDrawer-inputs'>
-            <div className="TemporaryDrawer-Input">
+           <div> 
+              <div className="TemporaryDrawer-Input">
                 <div>LOCATION</div>
-                
+            
                 <input
-                    className="TemporaryDrawer-Input-Location"
-                    type='text'
-                    placeholder="Add location"
-                    autoComplete='off'
-                    onChange={e => setLocation(e.target.value)}
+                  className="TemporaryDrawer-Input-Location"
+                  type='text'
+                  placeholder="Add location"
+                  autoComplete='off'
+                  value={location}
+                  onChange={e => setLocation(e.target.value)}
                 />
-                {/* <div>
-                    {staysArr.map((stay) => <p>{stay.city}</p>)}
-                </div> */}
+              </div>                
+              <div className="TemporaryDraw-CitiesList">
+                {cleanedCitiesList.map(city => 
+                  <p className="TemporaryDraw-City" onClick={() => setLocation(city)}>
+                    {placeIcon} {city}
+                  </p>)
+                }
+              </div>
             </div>
             <div className="TemporaryDrawer-Input">
                 <div>GUESTS</div>
@@ -68,6 +83,7 @@ const TemporaryDrawer: React.FC = () => {
                     type='text'
                     placeholder="Add guests"
                 />
+
             </div>
             <div className="TemporaryDrawer-SearchButton" onClick={handleSubmit}>
                 {searchRoundedIcon} Search

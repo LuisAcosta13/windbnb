@@ -29,7 +29,7 @@ const reducer = (state = initialState, action: SetProperties | CleanProperties):
         case GET_PROPERTIES:
         return {
             ...state,
-            stays: staysArr.filter((stay: any) => stay.city.toLowerCase() === action.payload),
+            stays: staysArr.filter((stay: any) => stay.city === action.payload),
             currentLocation: action.payload[0].toUpperCase() + action.payload.slice(1)
         }
         case CLEAN_PROPERTIES:

@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 20vh;
+    min-height: 50vh;
 }
 
 .TemporaryDrawer-SearchButton{
@@ -43,6 +43,25 @@
 
 .TemporaryDrawer-Input-Location:focus{
     outline: none;
+}
+
+.TemporaryDraw-CitiesList{
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 10px;
+}
+
+.TemporaryDraw-City{
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.TemporaryDraw-City:hover{
+    cursor: pointer;
+    color: #EB5757;
 }
 
 .TemporaryDrawer-Input-Guests:focus{
