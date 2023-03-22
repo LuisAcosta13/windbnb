@@ -26,6 +26,7 @@ function App() {
         <div className='App-Properties'>
           <Properties/>
         </div>
+        <div className='App-Footer'> created by Luis Acosta - devChallenges.io</div>
     </div>
   );
 }

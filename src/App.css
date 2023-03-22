@@ -24,3 +24,9 @@
 .App-link {
   color: #61dafb;
 }
+
+.App-Footer{
+  color: #828282;
+  padding-bottom: 20px;
+  font-size: 13px;
+}
