@@ -11,36 +11,36 @@ import staysArr from '../properties/stays.json'
 
 const TemporaryDrawer: React.FC = () => {
     
-    let searchRoundedIcon: JSX.Element = <SearchRoundedIcon/>
-    let placeIcon: JSX.Element = <PlaceIcon/>
+  let searchRoundedIcon: JSX.Element = <SearchRoundedIcon/>
+  let placeIcon: JSX.Element = <PlaceIcon/>
 
-    interface state {
-        left: any
+  interface state {
+      left: any
+  }
+
+  const [state, setState] = useState({
+    left: false,
+  });
+  
+  const toggleDrawer = (anchor: any, open: boolean) => (event: any) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
     }
 
-    const [state, setState] = useState({
-      left: false,
-    });
-  
-    const toggleDrawer = (anchor: any, open: boolean) => (event: any) => {
-      if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-        return;
-      }
-  
-      setState({ ...state, [anchor]: open });
-    };
+    setState({ ...state, [anchor]: open });
+  };
     
-    const dispatch = useDispatch()
-    const [location, setLocation] = useState('')
+  const dispatch = useDispatch()
+  const [location, setLocation] = useState('')
 
-    const handleSubmit = () => {
-        if(location.length > 0){
-            dispatch({type: GET_PROPERTIES, payload: location})
-        } else {
-            dispatch({type: CLEAN_PROPERTIES, payload: 'Finland'})
-        }
-        setLocation('')
+  const handleSubmit = (anchor: any) => {
+    if(location.length > 0){
+        dispatch({type: GET_PROPERTIES, payload: location})
+    } else {
+        dispatch({type: CLEAN_PROPERTIES, payload: 'Finland'})
     }
+    setLocation('')
+  }
 
   const citiesList = staysArr.map((stay) => stay.city)
   const cleanedCitiesList = citiesList.filter((city, index) => (citiesList.indexOf(city) === index))
@@ -49,7 +49,8 @@ const TemporaryDrawer: React.FC = () => {
     
     const list = (anchor: any) => (
       <Box
-        sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+      className='TemporaryDrawer'
+        sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250, paddingBottom: '10px' }}
         role="presentation"
         // onClick={toggleDrawer(anchor, false)}
         // onKeyDown={toggleDrawer(anchor, false)}
@@ -76,20 +77,41 @@ const TemporaryDrawer: React.FC = () => {
                 }
               </div>
             </div>
-            <div className="TemporaryDrawer-Input">
+            <div>
+              <div className="TemporaryDrawer-Input">
                 <div>GUESTS</div>
                 <input 
                     className="TemporaryDrawer-Input-Guests"
                     type='text'
                     placeholder="Add guests"
+                    disabled
                 />
-
+              </div>
+              <div className="TemporaryDraw-Guests-Options">
+                <div>
+                  <p className="TemporaryDraw-Guests-Text-1">Adults</p>
+                  <p className="TemporaryDraw-Guests-Text-2">Ages 13 or above</p>
+                  <div className="TemporaryDraw-Guests-Buttons">
+                    <button className="TemporaryDraw-Guests-Button-Minus">-</button>
+                    <span className="TemporaryDraw-Guests-Number">0</span>
+                    <button className="TemporaryDraw-Guests-Button-Plus">+</button>
+                  </div>
+                </div>
+                <div>
+                  <p className="TemporaryDraw-Guests-Text-1">Children</p>
+                  <p className="TemporaryDraw-Guests-Text-2">Ages 2-12</p>
+                  <div className="TemporaryDraw-Guests-Buttons">
+                    <button className="TemporaryDraw-Guests-Button-Minus">-</button>
+                    <span className="TemporaryDraw-Guests-Number">0</span>
+                    <button className="TemporaryDraw-Guests-Button-Plus">+</button>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="TemporaryDrawer-SearchButton" onClick={handleSubmit}>
-                {searchRoundedIcon} Search
+                <>{searchRoundedIcon} Search </>
             </div>
         </div>
-
       </Box>
     );
   

@@ -1,8 +1,20 @@
 .TemporaryDrawer-inputs{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     min-height: 50vh;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    
+}
+
+@media (max-height: 400px) {
+    .TemporaryDrawer{
+        max-height: 60vh;
+    }
+    .TemporaryDrawer-inputs{
+        padding-bottom: 20px;
+    }
 }
 
 .TemporaryDrawer-SearchButton{
@@ -15,6 +27,7 @@
     align-items: center;
     color: #F2F2F2;
     box-shadow: 0px 1px 6px 0px #F2F2F2;
+    margin-top: 5px;
 }
 
 .TemporaryDrawer-SearchButton:hover{
@@ -34,6 +47,10 @@
     flex-direction: column;
     justify-content: center;
     padding-left: 15px;
+}
+
+input{
+    width: 95%;
 }
 
 .TemporaryDrawer-Input-Location, .TemporaryDrawer-Input-Guests{
@@ -66,4 +83,53 @@
 
 .TemporaryDrawer-Input-Guests:focus{
     outline: none;
+}
+
+.TemporaryDraw-Guests-Options{
+    font-size: 12.6px;
+    padding-left: 20px;
+}
+
+.TemporaryDraw-Guests-Text-1{
+    color: #333333;
+    font-weight: bold;
+}
+
+.TemporaryDraw-Guests-Text-2{
+    color: #828282;
+}
+
+.TemporaryDraw-Guests-Buttons{
+    display: flex;
+    align-items: center;
+}
+
+.TemporaryDraw-Guests-Button-Minus, .TemporaryDraw-Guests-Button-Plus{
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px #828282;
+    border-radius: 4px;
+    color: #828282;
+}
+
+.TemporaryDraw-Guests-Button-Plus{
+    padding-top: 2.5px;
+    padding-left: 6.5px;
+}
+
+.TemporaryDraw-Guests-Button-Minus:hover, .TemporaryDraw-Guests-Button-Plus:hover{
+    cursor: pointer;
+    background-color: #EB5757;
+    color: #F2F2F2;
+    border-color: #F2F2F2;
+}
+
+.TemporaryDraw-Guests-Number{
+    color: #333333;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
 }
