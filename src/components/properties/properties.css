@@ -11,8 +11,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 120px;
-    padding-right: 120px;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .Properties-count{

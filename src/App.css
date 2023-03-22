@@ -14,7 +14,7 @@
   width: 69px;
   height: 14px;
   padding-top: 49px;
-  padding-left: 121px;
+  padding-left: 10%;
 }
 
 .App-logo:hover{
@@ -29,4 +29,10 @@
   color: #828282;
   padding-bottom: 20px;
   font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .App-header{
+    min-height: 0;
+  }
 }
