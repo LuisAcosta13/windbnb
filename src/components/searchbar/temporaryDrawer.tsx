@@ -65,6 +65,7 @@ const TemporaryDrawer: React.FC = () => {
                   type='text'
                   placeholder="Add location"
                   autoComplete='off'
+                  disabled
                   value={location}
                   onChange={e => setLocation(e.target.value)}
                 />
