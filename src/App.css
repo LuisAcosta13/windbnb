@@ -17,6 +17,10 @@
   padding-left: 121px;
 }
 
+.App-logo:hover{
+  cursor: pointer;
+}
+
 .App-link {
   color: #61dafb;
 }

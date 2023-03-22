@@ -6,6 +6,7 @@ import './temporaryDrawer.css'
 import { useDispatch } from 'react-redux';
 import { GET_PROPERTIES } from '../../redux/actions/get_properties'
 import { CLEAN_PROPERTIES } from "../../redux/actions/clean_filter";
+import staysArr from '../properties/stays.json'
 
 const TemporaryDrawer: React.FC = () => {
     
@@ -37,7 +38,7 @@ const TemporaryDrawer: React.FC = () => {
             dispatch({type: CLEAN_PROPERTIES, payload: 'Finland'})
         }
     }
-
+    
     const list = (anchor: any) => (
       <Box
         sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
@@ -53,9 +54,12 @@ const TemporaryDrawer: React.FC = () => {
                     className="TemporaryDrawer-Input-Location"
                     type='text'
                     placeholder="Add location"
-                    autoComplete="off"
+                    autoComplete='off'
                     onChange={e => setLocation(e.target.value)}
                 />
+                {/* <div>
+                    {staysArr.map((stay) => <p>{stay.city}</p>)}
+                </div> */}
             </div>
             <div className="TemporaryDrawer-Input">
                 <div>GUESTS</div>

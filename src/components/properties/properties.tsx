@@ -28,7 +28,7 @@ const Properties: React.FC = () => {
     const currentLocation = useSelector<RootState>((state) => state.currentLocation)
 
     return(
-        <div>
+        stays.length > 0 ? <div>
             <div className='Properties-header'>
                 <h2>
                     Stays in {currentLocation as string}
@@ -52,7 +52,7 @@ const Properties: React.FC = () => {
                     />
                 )}
             </div>
-        </div>
+        </div> : <div>No results</div>
     )
 }
 
