@@ -49,6 +49,10 @@
 }
 
 @media (max-width: 600px) {
+    .Searchbar-icons{
+        border: none;
+        box-shadow: none;
+    }
     .Searchbar-icons-location, .Searchbar-icons-guests{
        display: none;
     }
