@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-evenly;
     padding-top: 32px;
-    padding-right: 10%;
+    padding-right: 90%;
 }
 
 .Searchbar-icons{
@@ -49,6 +49,11 @@
 }
 
 @media (max-width: 600px) {
+    .Searchbar{
+        padding-top: 35px;
+        padding-right: 0%;
+        padding-left: 25%;
+    }
     .Searchbar-icons{
         border: none;
         box-shadow: none;
